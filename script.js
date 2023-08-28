@@ -144,7 +144,6 @@ class TicTacToe {
                     this.turn = "x";
                 }
                 this.turnCount++;
-                console.log(this.turnCount);
             }
             if (this.turnCount == 9 && !this.gameOver) {
                 this.gameOver = true;
@@ -176,7 +175,7 @@ class Cell {
         this.yEnd = this.yStart + this.cellLength;
         this.player = "-";
         this.context = context;
-        this.playerlineWidth = 6;
+        this.playerLineWidth = 6;
     }
 
     press(turn) {
@@ -196,7 +195,7 @@ class Cell {
 
     drawCross() {
         let reduction = 20;
-        this.context.lineWidth = this.playerlineWidth;
+        this.context.lineWidth = this.playerLineWidth;
         this.context.strokeStyle = "orange";
         this.context.beginPath();
         this.context.moveTo(this.xStart + reduction, this.yStart + reduction);
@@ -211,16 +210,12 @@ class Cell {
 
     drawNought() {
         let radius = this.cellLength / 3;
-        this.context.lineWidth = this.playerlineWidth;
+        this.context.lineWidth = this.playerLineWidth;
         this.context.strokeStyle = "lightgreen";
         this.context.beginPath();
         this.context.arc((this.xStart + this.xEnd) / 2, (this.yStart + this.yEnd) / 2,
             radius, 0, 2 * Math.PI);
         this.context.stroke();
-    }
-
-    getPlayer() {
-        return this.player;
     }
 
 }
